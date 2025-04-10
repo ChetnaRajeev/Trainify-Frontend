@@ -1,0 +1,52 @@
+
+.exercise-page {
+    background-color: #CBC3E3 !important; /* Force Lavender background */
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.exercise-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.exercise-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    background-color: #662D91; /* Default purple */
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-card.selected {
+    background-color: #4B1F70; /* Darker purple when selected */
+}
+
+.exercise-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.exercise-card p {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
