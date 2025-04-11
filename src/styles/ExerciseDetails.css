@@ -1,0 +1,35 @@
+.exercise-details-container {
+    background-color: #CBC3E3;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .exercise-image-container {
+    background-color: #806ED3;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  
+  .exercise-image-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .exercise-instructions {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .start-button {
+    background-color: #D69ADE;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
