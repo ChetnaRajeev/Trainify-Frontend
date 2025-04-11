@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+Trainify Frontend 🏋️‍♂️💪
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Trainify is a React.js + TypeScript web app designed for workout tracking & guidance. It allows users to select muscle groups, view exercise details, and get step-by-step workout instructions.
 
-## Available Scripts
+Table of Contents 📖
 
-In the project directory, you can run:
+Features
+Tech Stack
+Installation
+Project Structure
+Usage
+Future Enhancements
+Contributing
+License
+Features 🌟
 
-### `npm start`
+✅ User Authentication (Login & Sign-up)
+✅ Muscle Group Selection for targeted workouts
+✅ Dynamic Exercise Pages with images & instructions
+✅ Interactive UI with smooth transitions
+✅ Fully Responsive Design (Mobile & Laptop)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Tech Stack 🛠️
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React.js + TypeScript ⚛️
+CSS Modules 🎨
+React Router for navigation 🔄
+Local Storage for temporary user data
+Installation 🏗️
 
-### `npm test`
+1️⃣ Clone the repo:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+git clone https://github.com/yourusername/trainify-frontend.git
+cd trainify-frontend
+2️⃣ Install dependencies:
 
-### `npm run build`
+npm install
+3️⃣ Start the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run dev
+Project Structure 📁
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+📂 src  
+ ├── 📂 components        # React Components (Auth, Home, Exercise Pages)  
+ ├── 📂 assets            # Images & Icons  
+ ├── 📂 styles            # CSS Stylesheets  
+ ├── 📄 App.tsx           # Main App Component  
+ ├── 📄 index.tsx         # Entry Point  
+ ├── 📄 routes.ts         # Route Configuration  
+Usage 🚀
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Login or Sign Up to access workouts
+Select a muscle group to view available exercises
+Click on an exercise to see detailed instructions
+Start your workout with guided steps
+Future Enhancements 🔥
 
-### `npm run eject`
+🚀 API Integration for user authentication
+📊 Workout Tracking & Progress Visualization
+🤖 AI-powered Form Correction using Computer Vision
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Contributing 🤝
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+License 📜
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is licensed under the MIT License.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
