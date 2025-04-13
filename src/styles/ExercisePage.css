@@ -1,47 +1,59 @@
 .exercise-container {
-    background-color: #CBC3E3; /* ✅ Background color fixed */
+    background-color: #CBC3E3;
     padding: 20px;
     text-align: center;
     min-height: 100vh;
+}
+
+.exercise-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 .exercise-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* ✅ Adds spacing between rectangles */
+    gap: 20px;
 }
 
 .exercise-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #662D91; /* ✅ Default background */
+    background-color: #662D91;
     color: white;
-    width: 90%; /* ✅ Full width */
-    max-width: 500px; /* ✅ Restricts max width */
+    width: 90%;
+    max-width: 500px;
     padding: 15px;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    min-height: 100px;
+    box-sizing: border-box;
 }
 
 .exercise-card:hover {
-    background-color: #4B1F70; /* ✅ Hover effect */
+    background-color: #4B1F70;
 }
 
 .exercise-card.active {
-    background-color: #4B1F70; /* ✅ Clicked effect */
+    background-color: #4B1F70;
 }
 
 .exercise-name {
     font-size: 20px;
     font-weight: bold;
-    margin-left: 10px; /* ✅ Keeps text on the left */
+    margin-left: 10px;
+    flex: 1;
+    text-align: left;
+    word-break: break-word;
 }
 
 .exercise-image {
-    max-width: 80px;
+    max-width: 100px;
     height: auto;
-    margin-right: 10px; /* ✅ Aligns image to the right */
+    margin-left: 10px;
+    object-fit: contain;
 }
