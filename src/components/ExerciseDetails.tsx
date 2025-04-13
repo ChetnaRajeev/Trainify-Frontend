@@ -4,7 +4,7 @@ import "../styles/ExerciseDetails.css";
 
 // Importing all exercise images
 import squatImage from "../assets/squating.png";
-import pushupsImage from "../assets/pushup_exercisepage.png";
+import pushupsImage from "../assets/pushup_ExerciseDetails.png";
 import jumpingJacksImage from "../assets/JumpingJacks_ExcerciseDetails.png";
 import bicepCurlImage from "../assets/BicepCurl_ExerciseDetails.png";
 
