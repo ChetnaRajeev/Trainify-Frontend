@@ -1,9 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "../styles/ExerciseDetails.css";
-import squatImage from "../assets/squating.png";
 
-const exerciseInfo: { [key: string]: { name: string; image: string; instructions: string[] } } = {
+// Importing all exercise images
+import squatImage from "../assets/squating.png";
+import pushupsImage from "../assets/pushup_exercisepage.png";
+import jumpingJacksImage from "../assets/JumpingJacks_ExcerciseDetails.png";
+import bicepCurlImage from "../assets/BicepCurl_ExerciseDetails.png";
+
+// Add all exercise data here
+const exerciseInfo: {
+  [key: string]: {
+    name: string;
+    image: string;
+    instructions: string[];
+  };
+} = {
   squat: {
     name: "SQUATS",
     image: squatImage,
@@ -14,16 +26,47 @@ const exerciseInfo: { [key: string]: { name: string; image: string; instructions
       "Repeat until set is complete.",
     ],
   },
+  pushups: {
+    name: "PUSHUPS",
+    image: pushupsImage,
+    instructions: [
+      "Place your hands slightly wider than shoulder-width apart on the ground.",
+      "Extend your legs back so you're balanced on your hands and toes.",
+      "Lower your body until your chest nearly touches the floor.",
+      "Push yourself back up to the starting position.",
+      "Repeat the movement.",
+    ],
+  },
+  "jumping jacks": {
+    name: "JUMPING JACKS",
+    image: jumpingJacksImage,
+    instructions: [
+      "Stand upright with your legs together and arms at your sides.",
+      "Jump while spreading your legs shoulder-width apart and raising your arms overhead.",
+      "Jump again to return to the starting position.",
+      "Repeat for the desired number of reps.",
+    ],
+  },
+  "bicep curl": {
+    name: "BICEP CURL",
+    image: bicepCurlImage,
+    instructions: [
+      "Stand with a dumbbell in each hand, arms at your sides, and palms facing forward.",
+      "Keeping your elbows close to your torso, curl the weights while contracting your biceps.",
+      "Bring the dumbbells to shoulder level, then slowly lower them back.",
+      "Repeat the movement for the desired number of reps.",
+    ],
+  },
 };
 
 const ExerciseDetails: React.FC = () => {
   const { exerciseName } = useParams<{ exerciseName: string }>();
-  console.log("Exercise Name from URL:", exerciseName); // ✅ Debugging
+  const formattedName = (exerciseName || "").toLowerCase();
 
-  const exercise = exerciseInfo[exerciseName as keyof typeof exerciseInfo];
+  const exercise = exerciseInfo[formattedName as keyof typeof exerciseInfo];
 
   if (!exercise) {
-    return <h1>Exercise Not Found</h1>; // ✅ Prevent blank screen
+    return <h1>Exercise Not Found</h1>;
   }
 
   return (
@@ -34,7 +77,9 @@ const ExerciseDetails: React.FC = () => {
       </div>
       <div className="exercise-instructions">
         {exercise.instructions.map((step, index) => (
-          <p key={index}>{index + 1}. {step}</p>
+          <p key={index}>
+            {index + 1}. {step}
+          </p>
         ))}
       </div>
       <button className="start-button">Start</button>
