@@ -4,6 +4,9 @@ import "../styles/ExercisePage.css";
 import squatImage from "../assets/squat.png";
 import lungeImage from "../assets/lunge.png";
 import calfRaiseImage from "../assets/calf_raises.png";
+import bicepCurlImage from "../assets/BicepCurl_Exercis.png";
+import jumpingJacksImage from "../assets/JumpingJacks_ExcerciseDetails.png";
+import pushupsImage from "../assets/pushup_exercisepage.png";
 
 const exercisesData: { [key: string]: { name: string; image: string }[] } = {
   legs: [
@@ -11,22 +14,30 @@ const exercisesData: { [key: string]: { name: string; image: string }[] } = {
     { name: "Lunge", image: lungeImage },
     { name: "Calf Raise", image: calfRaiseImage },
   ],
+  arms: [
+    { name: "Bicep Curl", image: bicepCurlImage },
+  ],
+  fullbody: [
+    { name: "Jumping Jacks", image: jumpingJacksImage },
+    { name: "Pushups", image: pushupsImage },
+  ]
 };
 
 const ExercisePage: React.FC = () => {
   const { muscleGroup } = useParams<{ muscleGroup: string }>();
   const navigate = useNavigate();
 
-  const exercises = exercisesData[muscleGroup || ""] || [];
+  const normalizedGroup = (muscleGroup || "").toLowerCase();
+  const exercises = exercisesData[normalizedGroup] || [];
 
   const handleExerciseClick = (exerciseName: string) => {
-    console.log(`Navigating to /exercise-details/${exerciseName.toLowerCase()}`); // ✅ Debugging
+    console.log(`Navigating to /exercise-details/${exerciseName.toLowerCase()}`);
     navigate(`/exercise-details/${exerciseName.toLowerCase()}`);
   };
 
   return (
     <div className="exercise-container">
-      <h1>{muscleGroup?.toUpperCase()} EXERCISES</h1>
+      <h1 className="exercise-title">{normalizedGroup.toUpperCase()} EXERCISES</h1>
       <div className="exercise-list">
         {exercises.length > 0 ? (
           exercises.map((exercise) => (
@@ -35,8 +46,8 @@ const ExercisePage: React.FC = () => {
               className="exercise-card" 
               onClick={() => handleExerciseClick(exercise.name)}
             >
-              <p>{exercise.name.toUpperCase()}</p>
-              <img src={exercise.image} alt={exercise.name} />
+              <div className="exercise-name">{exercise.name}</div>
+              <img src={exercise.image} alt={exercise.name} className="exercise-image" />
             </div>
           ))
         ) : (
