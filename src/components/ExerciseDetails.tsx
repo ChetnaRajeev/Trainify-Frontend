@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/ExerciseDetails.css";
 
 // Importing all exercise images
@@ -16,7 +16,7 @@ const exerciseInfo: {
     instructions: string[];
   };
 } = {
-  squat: {
+  squats: {
     name: "SQUATS",
     image: squatImage,
     instructions: [
@@ -61,9 +61,21 @@ const exerciseInfo: {
 
 const ExerciseDetails: React.FC = () => {
   const { exerciseName } = useParams<{ exerciseName: string }>();
+  // Make the exerciseName title case
   const formattedName = (exerciseName || "").toLowerCase();
+  const trackingFormattedName = exerciseName ? exerciseName.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : "";
+
+  console.log("Exercise Name: ", trackingFormattedName);
 
   const exercise = exerciseInfo[formattedName as keyof typeof exerciseInfo];
+
+  // Navigate variable
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    // Navigate to the ExerciseTracking page for the given exercise
+    navigate(`/exercise-tracking/${trackingFormattedName}`);
+  }
 
   if (!exercise) {
     return <h1>Exercise Not Found</h1>;
@@ -82,7 +94,7 @@ const ExerciseDetails: React.FC = () => {
           </p>
         ))}
       </div>
-      <button className="start-button">Start</button>
+      <button className="start-button" onClick={() => {handleStart()}} >Start</button>
     </div>
   );
 };

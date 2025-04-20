@@ -1,16 +1,20 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import for navigation
-import "./Home.css";
-import profileIcon from "../assets/Profile.png"; 
+import { useNavigate, useParams } from "react-router-dom"; // Import for navigation
+import { FaCircleUser } from "react-icons/fa6"; // Importing user icon
 import fullBodyImage from "../assets/fullbody.png";
 import legsImage from "../assets/Leg.png";
 import armsImage from "../assets/arms.png";
 import chestImage from "../assets/Chest.png";
 import coreImage from "../assets/Core.png";
 import backImage from "../assets/Back.png";
+import "../styles/Home.css"; // Importing CSS for styling
+import { useUser } from "../context/UserContext";
 
 const Home: React.FC = () => {
-    const userName: string = "Cera"; // Replace with dynamic user data
+    const { username } = useParams<{ username: string }>(); // Get username from URL
+    const { userName } = useUser(); // Get username from context
+    const userNameFromParams = username || userName; // Fallback to context if URL doesn't provide it
+
     const today: number = new Date().getDate(); // Get today's date
     const navigate = useNavigate(); // Hook for navigation
 
@@ -22,8 +26,8 @@ const Home: React.FC = () => {
     return (
         <div className="home-container">
             <header className="home-header">
-                <h1>Hello, {userName}!</h1>
-                <img src={profileIcon} alt="Profile" className="profile-icon" />
+                <h1>Hello, {userNameFromParams}!</h1>
+                <FaCircleUser size={45} />
             </header>
 
             <section className="workout-selection">
