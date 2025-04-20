@@ -10,7 +10,7 @@ import pushupsImage from "../assets/pushup_exercisepage.png";
 
 const exercisesData: { [key: string]: { name: string; image: string }[] } = {
   legs: [
-    { name: "Squat", image: squatImage },
+    { name: "Squats", image: squatImage },
     { name: "Lunge", image: lungeImage },
     { name: "Calf Raise", image: calfRaiseImage },
   ],
@@ -31,7 +31,7 @@ const ExercisePage: React.FC = () => {
   const exercises = exercisesData[normalizedGroup] || [];
 
   const handleExerciseClick = (exerciseName: string) => {
-    console.log(`Navigating to /exercise-details/${exerciseName.toLowerCase()}`);
+    console.log(`Navigating to /exercise-details/${exerciseName}`);
     navigate(`/exercise-details/${exerciseName.toLowerCase()}`);
   };
 

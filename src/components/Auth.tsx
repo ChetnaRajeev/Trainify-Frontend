@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
-interface FormData {
+interface SignupData {
   name: string;
   age: string;
   gender: string;
@@ -11,14 +13,15 @@ interface FormData {
   level: string;
 }
 
-interface LoginData {
+interface LoginInfo {
   username: string;
   password: string;
 }
 
 const Auth: React.FC = () => {
   const [isSignup, setIsSignup] = useState<boolean>(false);
-  const [formData, setFormData] = useState<FormData>({
+  const { setUserName } = useUser();
+  const [formData, setFormData] = useState<SignupData>({
     name: "",
     age: "",
     gender: "Male",
@@ -29,7 +32,8 @@ const Auth: React.FC = () => {
     level: "Beginner",
   });
 
-  const [loginData, setLoginData] = useState<LoginData>({ username: "", password: "" });
+  const [loginData, setLoginData] = useState<LoginInfo>({ username: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,15 +43,40 @@ const Auth: React.FC = () => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isSignup) {
-      console.log("Signup Data:", formData);
-      alert("Account created successfully! (Data logged in console)");
-      setIsSignup(false);
-    } else {
-      console.log("Login Data:", loginData);
-      alert("Login button clicked! (No validation for now)");
+
+    const url = isSignup ? "https://5g3fbe2my6i4.share.zrok.io/register" : "https://5g3fbe2my6i4.share.zrok.io/login";
+    const payload = isSignup ? formData : loginData;
+
+    try {
+      console.log("Payload: ", payload);
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "skip_zrok_interstitial": "true",
+         },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || "Something went wrong");
+      }
+
+      alert(data.message);
+
+      if (isSignup) {
+        setIsSignup(false);
+      } else {
+        setUserName(loginData.username);
+        navigate(`/home/${loginData.username}`);
+      }
+    } catch (error: any) {
+      console.error("Error:", error.message);
+      alert("Error: " + error.message);
     }
   };
 
