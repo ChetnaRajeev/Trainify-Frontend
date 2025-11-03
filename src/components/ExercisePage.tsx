@@ -1,12 +1,14 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ExercisePage.css";
-import squatImage from "../assets/squat.png";
-import lungeImage from "../assets/lunge.png";
-import calfRaiseImage from "../assets/calf_raises.png";
-import bicepCurlImage from "../assets/BicepCurl_Exercis.png";
-import jumpingJacksImage from "../assets/JumpingJacks_ExcerciseDetails.png";
-import pushupsImage from "../assets/pushup_exercisepage.png";
+
+// Import all images
+const squatImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/squat.png";
+const lungeImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/lunge.png";
+const calfRaiseImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/calf_raises.png";
+const bicepCurlImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/BicepCurl_Exercis.png";
+const jumpingJacksImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/JumpingJacks_ExcerciseDetails.png";
+const pushupsImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/pushup_exercisepage.png";
 
 const exercisesData: { [key: string]: { name: string; image: string }[] } = {
   legs: [

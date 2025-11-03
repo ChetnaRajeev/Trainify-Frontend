@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/ExerciseDetails.css";
 
-// Importing all exercise images
-import squatImage from "../assets/squating.png";
-import pushupsImage from "../assets/pushup_ExerciseDetails.png";
-import jumpingJacksImage from "../assets/JumpingJacks_ExcerciseDetails.png";
-import bicepCurlImage from "../assets/BicepCurl_ExerciseDetails.png";
+// Import all images
+const squatImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/squating.png"
+const pushupsImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/pushup_ExerciseDetails.png"
+const bicepCurlImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/BicepCurl_ExerciseDetails.png"
+const jumpingJacksImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/JumpingJacks_ExcerciseDetails.png"
 
 // Add all exercise data here
 const exerciseInfo: {

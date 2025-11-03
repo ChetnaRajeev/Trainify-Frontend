@@ -1,14 +1,16 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom"; // Import for navigation
 import { FaCircleUser } from "react-icons/fa6"; // Importing user icon
-import fullBodyImage from "../assets/fullbody.png";
-import legsImage from "../assets/Leg.png";
-import armsImage from "../assets/arms.png";
-import chestImage from "../assets/Chest.png";
-import coreImage from "../assets/Core.png";
-import backImage from "../assets/Back.png";
 import "../styles/Home.css"; // Importing CSS for styling
 import { useUser } from "../context/UserContext";
+
+// Import all images
+const fullBodyImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/fullbody.png";
+const legsImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/Leg.png";
+const armsImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/arms.png";
+const chestImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/Chest.png";
+const coreImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/Core.png";
+const backImage = "https://trainify-assets-s3.s3.us-east-1.amazonaws.com/assets/Back.png";
 
 const Home: React.FC = () => {
     const { username } = useParams<{ username: string }>(); // Get username from URL
