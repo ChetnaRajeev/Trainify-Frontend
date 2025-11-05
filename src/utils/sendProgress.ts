@@ -12,11 +12,10 @@ export const sendProgressToBackend = async ({
     duration: number;
   }) => {
     try {
-      const res = await fetch("https://yk6zvxn3ozgv.share.zrok.io/save-progress", {
+      const res = await fetch("http://54.160.133.124:8000/save-progress", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "skip_zrok_interstitial": "true",
         },
         body: JSON.stringify({
           user_name,

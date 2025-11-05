@@ -46,7 +46,7 @@ const Auth: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const url = isSignup ? "https://5g3fbe2my6i4.share.zrok.io/register" : "https://5g3fbe2my6i4.share.zrok.io/login";
+    const url = isSignup ? "http://54.160.133.124:8000/register" : "http://54.160.133.124:8000/login";
     const payload = isSignup ? formData : loginData;
 
     try {
@@ -55,7 +55,6 @@ const Auth: React.FC = () => {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
-          "skip_zrok_interstitial": "true",
          },
         body: JSON.stringify(payload),
       });
