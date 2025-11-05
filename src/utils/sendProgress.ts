@@ -12,7 +12,7 @@ export const sendProgressToBackend = async ({
     duration: number;
   }) => {
     try {
-      const res = await fetch("http://54.160.133.124:8000/save-progress", {
+      const res = await fetch("https://lab-amazed-ladybird.ngrok-free.app/save-progress", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

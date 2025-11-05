@@ -46,7 +46,7 @@ const Auth: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const url = isSignup ? "http://54.160.133.124:8000/register" : "http://54.160.133.124:8000/login";
+    const url = isSignup ? "https://lab-amazed-ladybird.ngrok-free.app/register" : "https://lab-amazed-ladybird.ngrok-free.app/login";
     const payload = isSignup ? formData : loginData;
 
     try {
